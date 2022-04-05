@@ -1,24 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import { fetchImages, getList, getTeams } from "./features/user/teamSlice";
+import { validateSession } from "./features/user/userSlice";
+import Home from "./pages/Home";
+import LogIn from "./pages/LogIn";
+import SignUp from "./pages/SignUp";
+import Workspace from "./pages/Workspace";
 
 function App() {
+  const dispatch = useDispatch();
+  const { logged } = useSelector((state) => state.user);
+
+  useEffect(() => {
+    dispatch(validateSession());
+    if (logged === true) {
+      dispatch(fetchImages());
+      dispatch(getTeams());
+      dispatch(getList())
+    }
+  }, [dispatch, logged]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        <Navbar />
+        <div>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<LogIn />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/workspace/:id" element={<Workspace />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </>
   );
 }
 
