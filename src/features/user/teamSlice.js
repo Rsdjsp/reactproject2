@@ -28,6 +28,17 @@ export const createTeam = createAsyncThunk(
   }
 );
 
+export const createList = createAsyncThunk(
+  "team/newlist",
+  async (data, thunkAPI) => {
+    const response = await post("/workList", {
+      title: data.title,
+      team: data.idTeam,
+    });
+    return response.data;
+  }
+);
+
 export const getTeams = createAsyncThunk(
   "getTeam/teams",
   async (data, thunkAPI) => {

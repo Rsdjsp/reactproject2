@@ -6,14 +6,13 @@ import { MdOutlineAccountCircle } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "../features/user/userSlice";
 
-
 export default function Navbar() {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const [modal, setModal] = useState(false);
 
   return (
-    <nav className=" fixed w-screen grid grid-flow-col grid-cols-3 bg-slate-900 shadow-lg h-20 opacity-95 z-10">
+    <nav className=" fixed w-screen grid grid-flow-col grid-cols-3 bg-slate-900 shadow-lg h-20 opacity-95 z-50">
       <img
         src="https://i.imgur.com/0ANq75J.png"
         alt="logo"
@@ -37,7 +36,7 @@ export default function Navbar() {
         </button>
       </div>
       {modal && user.logged && (
-        <section className="absolute w-1/5 h-fit top-16 right-0 bg-slate-50 flex-row z-30 pb-6 border-2 border-slate-400">
+        <section className="absolute w-1/5 h-fit top-16 right-0 bg-slate-50 flex-row z-50 pb-6 border-2 border-slate-400">
           <div className="w-11/12 text-center p-2 font-sans relative text-slate-700 border-b-2 border-slate-400 ml-3">
             <h1 className="font-bold text-xl">Account</h1>
             <button

@@ -105,7 +105,7 @@ export default function Nav({ images, team }) {
 
   return (
     team && (
-      <nav className="relative w-screen h-14 bg-slate-900  shadow-lg   opacity-95 grid grid-flow-col grid-cols-2 z-0">
+      <nav className="relative w-screen h-14 bg-slate-900  shadow-lg   opacity-95 grid grid-flow-col grid-cols-2 z-30">
         <article className="flex justify-start">
           <button
             onClick={() => setModal(!modal)}
@@ -204,11 +204,11 @@ export default function Nav({ images, team }) {
           </section>
         </article>
         {modal && (
-          <div className="w-1/4 h-fit border-2 border-zinc-300 shadow-md absolute top-12 bg-zinc-100 left-8 rounded-md">
+          <div className="w-1/4 h-fit border-2 border-zinc-300 shadow-md absolute top-12 bg-zinc-100 left-8  z-30 rounded-md">
             <h3 className="w-3/4 ml-10 border-b-2 border-zinc-300 font-sans font-semibold text-slate-900 text-xl text-center">
               Cover
             </h3>
-            <section className="bg-slate-50 border-slate-400 m-1 border-2 h-96 overflow-y-auto">
+            <section className="bg-slate-50 border-slate-400 m-1 border-2 h-80 overflow-y-auto">
               {images.map((image) => {
                 return (
                   <button
@@ -240,7 +240,7 @@ export default function Nav({ images, team }) {
           </div>
         )}
         {modal2 && logged && (
-          <div className="bg-slate-50 absolute right-9 top-11 rounded-sm w-1/3 flex flex-col pb-4 border-2 border-slate-400">
+          <div className="bg-slate-50 absolute right-9 top-11 rounded-sm w-1/3 z-30 flex flex-col pb-4 border-2 border-slate-400">
             <h3 className="w-11/12 mx-auto mt-1 border-b-2 border-zinc-300 font-sans font-semibold text-slate-900 text-xl text-center">
               Invite user
             </h3>
