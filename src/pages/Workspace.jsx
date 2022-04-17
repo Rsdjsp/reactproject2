@@ -21,8 +21,8 @@ export default function Workspace() {
           />
           <Nav images={images} team={team} />
           <section className="w-full h-full overflow-y-auto pl-5 relative  overflow-x-auto">
-            {/* <DragAndDrop2 /> */}
-            {lists && <DragAndDrop />}
+            <DragAndDrop2 />
+            {/* {lists && <DragAndDrop />} */}
           </section>
         </div>
       )}

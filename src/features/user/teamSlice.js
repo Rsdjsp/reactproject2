@@ -32,7 +32,7 @@ export const createList = createAsyncThunk(
   "team/newlist",
   async (data, thunkAPI) => {
     const response = await post("/workList", {
-      title: data.title,
+      title: data.listTitle,
       team: data.idTeam,
     });
     return response.data;
